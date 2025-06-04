@@ -7,6 +7,14 @@ const Home_card = () => {
     const [currentImage, setCurrentImage] = useState(defaultImage)
     const rightContainerRef = useRef(null)
     const imageRef = useRef(null)
+    
+    useEffect(() => {
+        // Preload all card images
+        cards.forEach(card => {
+            const img = new Image()
+            img.src = card.image
+        })
+    }, [])
 
     const cards = [
         {
